@@ -1,0 +1,348 @@
+44 42
+assignmentStmt_type1
+assignmentStmt_type2
+arithmeticExpression
+arithmeticTerm
+booleanExpression
+constrainedVars
+declarationStmt
+ifStmt
+ioStmt
+inputParameterList
+functionDef
+funCallStmt
+factor
+logicalOp
+leftHandSide_singleVar
+leftHandSide_listVar
+listVar
+mainFunction
+more_ids
+matrix
+matrixElement
+newarithmeticExpression
+newarithmeticTerm
+newif
+newrows
+newstatements
+otherStmts
+operator_lowPrecedence
+operator_highPrecedence
+parameter_list
+remainingList
+rightHandSide_type1
+rightHandSide_type2
+rows
+row
+remainingColElements
+relationalOp
+stmtsAndFunctionDefs
+stmtOrFunctionDef
+stmt
+sizeExpression
+type
+var_list
+var
+ASSIGNOP
+AND
+COMMENT
+CL
+COMMA
+DIV
+END
+ELSE
+ENDIF
+EPSILON
+EQ
+FUNID
+FUNCTION
+GE
+GT
+ID
+INT
+IF
+LT
+LE
+LE
+MATRIX
+MAIN
+MINUS
+MUL
+NUM
+NOT
+NE
+OP
+OR
+PRINT
+PLUS
+RNUM
+REAL
+READ
+STR
+STRING
+SQO
+SQC
+SEMICOLON
+SIZE
+$
+86
+5
+mainFunction MAIN SQO SQC stmtsAndFunctionDefs END 
+2
+stmtsAndFunctionDefs stmtOrFunctionDef newstatements 
+1
+newstatements stmtsAndFunctionDefs 
+1
+newstatements EPSILON 
+1
+stmtOrFunctionDef stmt 
+1
+stmtOrFunctionDef functionDef 
+1
+stmt declarationStmt 
+1
+stmt assignmentStmt_type1 
+1
+stmt assignmentStmt_type2 
+1
+stmt ifStmt 
+1
+stmt ioStmt 
+2
+stmt funCallStmt SEMICOLON 
+12
+functionDef FUNCTION SQO parameter_list SQC ASSIGNOP FUNID SQO parameter_list SQC stmtsAndFunctionDefs END SEMICOLON 
+3
+parameter_list type ID remainingList 
+1
+type INT 
+1
+type REAL 
+1
+type STRING 
+1
+type MATRIX 
+2
+remainingList COMMA parameter_list 
+1
+remainingList EPSILON 
+3
+declarationStmt type var_list SEMICOLON 
+2
+var_list ID more_ids 
+2
+more_ids COMMA var_list 
+1
+more_ids EPSILON 
+4
+assignmentStmt_type1 leftHandSide_singleVar ASSIGNOP rightHandSide_type1 SEMICOLON 
+4
+assignmentStmt_type2 leftHandSide_listVar ASSIGNOP rightHandSide_type2 SEMICOLON 
+1
+leftHandSide_singleVar ID 
+3
+leftHandSide_listVar SQO var_list SQC 
+1
+rightHandSide_type1 arithmeticExpression 
+1
+rightHandSide_type1 sizeExpression 
+1
+rightHandSide_type1 funCallStmt 
+1
+rightHandSide_type2 sizeExpression 
+1
+rightHandSide_type2 funCallStmt 
+2
+sizeExpression SIZE ID 
+7
+ifStmt IF OP booleanExpression CL stmt otherStmts newif 
+5
+newif ELSE stmt otherStmts ENDIF SEMICOLON 
+2
+newif ENDIF SEMICOLON 
+2
+otherStmts stmt otherStmts 
+1
+otherStmts EPSILON 
+5
+ioStmt READ OP ID CL SEMICOLON 
+5
+ioStmt PRINT OP ID CL SEMICOLON 
+4
+funCallStmt FUNID OP inputParameterList CL 
+2
+inputParameterList var listVar 
+1
+inputParameterList EPSILON 
+2
+listVar COMMA inputParameterList 
+1
+listVar EPSILON 
+2
+arithmeticExpression arithmeticTerm newarithmeticExpression 
+1
+newarithmeticExpression EPSILON 
+2
+newarithmeticExpression operator_lowPrecedence arithmeticExpression 
+2
+arithmeticTerm factor newarithmeticTerm
+2
+newarithmeticTerm operator_highPrecedence arithmeticTerm 
+1
+newarithmeticTerm EPSILON 
+3
+factor OP arithmeticExpression CL 
+1
+factor var 
+1
+operator_lowPrecedence PLUS 
+1
+operator_lowPrecedence MINUS 
+1
+operator_highPrecedence MUL 
+1
+operator_highPrecedence DIV 
+7
+booleanExpression OP booleanExpression CL logicalOp OP booleanExpression CL 
+3
+booleanExpression constrainedVars relationalOp constrainedVars 
+4
+booleanExpression NOT OP booleanExpression CL 
+1
+constrainedVars ID 
+1
+constrainedVars NUM 
+1
+constrainedVars RNUM 
+2
+var ID matrixElement 
+1
+var NUM 
+1
+var RNUM 
+1
+var STR 
+1
+var matrix 
+3
+matrix SQO rows SQC 
+2
+rows row newrows 
+2
+newrows SEMICOLON rows 
+1
+newrows EPSILON 
+2
+row NUM remainingColElements 
+3
+remainingColElements COMMA NUM remainingColElements 
+1
+remainingColElements EPSILON 
+5
+matrixElement SQO NUM COMMA NUM SQC 
+1
+matrixElement EPSILON 
+1
+logicalOp AND 
+1
+logicalOp OR 
+1
+relationalOp LT 
+1
+relationalOp LE  
+1
+relationalOp EQ  
+1
+relationalOp GT  
+1
+relationalOp GE  
+1
+relationalOp NE 
+1
+$
+1
+END
+1
+END
+12
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF FUNCTION END
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+12
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF FUNCTION END
+1
+SQC
+1
+ID
+1
+SQC
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+2
+SQC SEMICOLON
+2
+SQC SEMICOLON
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+1
+ASSIGNOP
+1
+ASSIGNOP
+1
+SEMICOLON
+1
+SEMICOLON
+1
+SEMICOLON
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+2
+ENDIF ELSE
+14
+INT REAL STRING MATRIX SQO READ PRINT ID FUNID IF ENDIF ELSE FUNCTION END
+1
+SEMICOLON
+1
+CL
+1
+CL
+2
+CL SEMICOLON
+2
+CL SEMICOLON
+4
+PLUS MINUS CL SEMICOLON
+4
+PLUS MINUS CL SEMICOLON
+6
+MUL DIV PLUS MINUS CL SEMICOLON
+6
+OP ID NUM RNUM STR SQO
+6
+OP ID NUM RNUM STR SQO
+1
+CL
+7
+LT LE EQ GT GE NE CL
+7
+COMMA MUL DIV PLUS MINUS CL SEMICOLON
+7
+COMMA MUL DIV PLUS MINUS CL SEMICOLON
+1
+SQC
+1
+SQC
+2
+SEMICOLON SQC
+2
+SEMICOLON SQC
+7
+COMMA MUL DIV PLUS MINUS CL SEMICOLON
+1
+OP
+3
+ID NUM RNUM

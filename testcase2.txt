@@ -1,0 +1,7 @@
+_main[]
+	string s;
+	int a;
+	s = "abcd";
+	a = @s;
+	print(a);
+end

@@ -1,0 +1,86 @@
+1 mainFunction --> MAIN SQO SQC stmtsAndFunctionDefs END 
+2 stmtsAndFunctionDefs --> stmtOrFunctionDef newstatements 
+3 newstatements --> stmtsAndFunctionDefs 
+4 newstatements --> EPSILON 
+5 stmtOrFunctionDef --> stmt 
+6 stmtOrFunctionDef --> functionDef 
+7 stmt --> declarationStmt 
+8 stmt --> assignmentStmt_type1 
+9 stmt --> assignmentStmt_type2 
+10 stmt --> ifStmt 
+11 stmt --> ioStmt 
+12 stmt --> funCallStmt SEMICOLON 
+13 functionDef --> FUNCTION SQO parameter_list SQC ASSIGNOP FUNID SQO parameter_list SQC stmtsAndFunctionDefs END SEMICOLON 
+14 parameter_list --> type ID remainingList 
+15 type --> INT 
+16 type --> REAL 
+17 type --> STRING 
+18 type --> MATRIX 
+19 remainingList --> COMMA parameter_list 
+20 remainingList --> EPSILON 
+21 declarationStmt --> type var_list SEMICOLON 
+22 var_list --> ID more_ids 
+23 more_ids --> COMMA var_list 
+24 more_ids --> EPSILON 
+25 assignmentStmt_type1 --> leftHandSide_singleVar ASSIGNOP rightHandSide_type1 SEMICOLON 
+26 assignmentStmt_type2 --> leftHandSide_listVar ASSIGNOP rightHandSide_type2 SEMICOLON 
+27 leftHandSide_singleVar --> ID 
+28 leftHandSide_listVar --> SQO var_list SQC 
+29 rightHandSide_type1 --> arithmeticExpression 
+30 rightHandSide_type1 --> sizeExpression 
+31 rightHandSide_type1 --> funCallStmt 
+32 rightHandSide_type2 --> sizeExpression 
+33 rightHandSide_type2 --> funCallStmt 
+34 sizeExpression --> SIZE ID 
+35 ifStmt --> IF OP booleanExpression CL stmt otherStmts newif 
+36 newif --> ELSE stmt otherStmts ENDIF SEMICOLON 
+37 newif --> ENDIF SEMICOLON 
+38 otherStmts --> stmt otherStmts 
+39 otherStmts --> EPSILON 
+40 ioStmt --> READ OP ID CL SEMICOLON 
+41 ioStmt --> PRINT OP ID CL SEMICOLON 
+42 funCallStmt --> FUNID OP inputParameterList CL 
+43 inputParameterList --> var listVar 
+44 inputParameterList --> EPSILON 
+45 listVar --> COMMA inputParameterList 
+46 listVar --> EPSILON 
+47 arithmeticExpression --> arithmeticTerm newarithmeticExpression 
+48 newarithmeticExpression --> EPSILON 
+49 newarithmeticExpression --> operator_lowPrecedence arithmeticExpression 
+50 arithmeticTerm --> factor newarithmeticTerm 
+51 newarithmeticTerm --> operator_highPrecedence arithmeticTerm 
+52 newarithmeticTerm --> EPSILON 
+53 factor --> OP arithmeticExpression CL 
+54 factor --> var 
+55 operator_lowPrecedence --> PLUS 
+56 operator_lowPrecedence --> MINUS 
+57 operator_highPrecedence --> MUL 
+58 operator_highPrecedence --> DIV 
+59 booleanExpression --> OP booleanExpression CL logicalOp OP booleanExpression CL 
+60 booleanExpression --> constrainedVars relationalOp constrainedVars 
+61 booleanExpression --> NOT OP booleanExpression CL 
+62 constrainedVars --> ID 
+63 constrainedVars --> NUM 
+64 constrainedVars --> RNUM 
+65 var --> ID matrixElement 
+66 var --> NUM 
+67 var --> RNUM 
+68 var --> STR 
+69 var --> matrix 
+70 matrix --> SQO rows SQC 
+71 rows --> row newrows 
+72 newrows --> SEMICOLON rows 
+73 newrows --> EPSILON 
+74 row --> NUM remainingColElements 
+75 remainingColElements --> COMMA NUM remainingColElements 
+76 remainingColElements --> EPSILON 
+77 matrixElement --> SQO NUM COMMA NUM SQC 
+78 matrixElement --> EPSILON 
+79 logicalOp --> AND 
+80 logicalOp --> OR 
+81 relationalOp --> LT 
+82 relationalOp --> LE 
+83 relationalOp --> EQ 
+84 relationalOp --> GT 
+85 relationalOp --> GE 
+86 relationalOp --> NE 
